@@ -22,6 +22,7 @@
 		FA6EE9D2237A856A003D5E0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6EE9D1237A856A003D5E0A /* Main.storyboard */; };
 		FA6EE9D4237A86BF003D5E0A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EE9D3237A86BF003D5E0A /* FeedViewController.swift */; };
 		FA6EE9D6237A86CC003D5E0A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6EE9D5237A86CC003D5E0A /* LoginViewController.swift */; };
+		FAECB2DB2381077F00DABFCC /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAECB2DA2381077F00DABFCC /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		FA6EE9D1237A856A003D5E0A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA6EE9D3237A86BF003D5E0A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA6EE9D5237A86CC003D5E0A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FAECB2DA2381077F00DABFCC /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				FA40D5B7237A7F9500493E1C /* AppDelegate.swift */,
 				FA40D5B9237A7F9500493E1C /* SceneDelegate.swift */,
 				FA6EE9D1237A856A003D5E0A /* Main.storyboard */,
+				FAECB2DA2381077F00DABFCC /* PostCell.swift */,
 				FA6EE9D3237A86BF003D5E0A /* FeedViewController.swift */,
 				FA6EE9D5237A86CC003D5E0A /* LoginViewController.swift */,
 				FA40D5BB237A7F9500493E1C /* ContentView.swift */,
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAECB2DB2381077F00DABFCC /* PostCell.swift in Sources */,
 				FA40D5B8237A7F9500493E1C /* AppDelegate.swift in Sources */,
 				FA40D5BA237A7F9500493E1C /* SceneDelegate.swift in Sources */,
 				FA6EE9D4237A86BF003D5E0A /* FeedViewController.swift in Sources */,
