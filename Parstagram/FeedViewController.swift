@@ -52,6 +52,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         
         tableView.keyboardDismissMode = .interactive
+        
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillBeHidden(note: Notification){
+        commentBar.inputTextView.text = nil
+        showsCommentBar = false
+        becomeFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,7 +93,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.photoView.af_setImage(withURL: url)
             
             return cell
-        } else if indexPath.row > comments.count {
+        } else if indexPath.row < comments.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
             
             let comment = comments[indexPath.row - 1]
