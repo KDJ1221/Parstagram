@@ -1,3 +1,7 @@
+# Parstagram
+
+Parstagram is an app similar to Instagram, in which users can take and post photos, and add comments to each post.
+
 # Parstagram - Part II
 
 This is an Instagram clone with a custom Parse backend that allows a user to post photos, view a global photos feed, and add comments!
