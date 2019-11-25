@@ -11,7 +11,7 @@ import Parse
 import Alamofire
 import MessageInputBar
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
     
 
     @IBOutlet weak var tableView: UITableView!
@@ -40,12 +40,21 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
         }
-        
+    }
+    
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        commentBar.inputTextView.text = nil
+        showsCommentBar = false
+        becomeFirstResponder()
+        commentBar.inputTextView.resignFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataRequest.addAcceptableImageContentTypes(["application/octet-stream"])
+        //DataRequest.addAcceptableImageContentTypes(["application/octet-stream"])
+        commentBar.inputTextView.placeholder = "Add a comment..."
+        commentBar.sendButton.title = "Post"
+        commentBar.delegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -67,7 +76,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let post = posts[section]
         let comments = (post["comments"] as? [PFObject]) ?? []
         
-        return comments.count + 1
+        return comments.count + 2
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,7 +102,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.photoView.af_setImage(withURL: url)
             
             return cell
-        } else if indexPath.row < comments.count {
+        } else if indexPath.row <= comments.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell") as! CommentCell
             
             let comment = comments[indexPath.row - 1]
@@ -133,7 +142,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let post = posts[indexPath.row]
+        let post = posts[indexPath.section]
         let comments = (post["comments"] as? [PFObject]) ?? []
         
         if indexPath.row == comments.count + 1 {
